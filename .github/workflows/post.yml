@@ -1,7 +1,47 @@
+# name: AI Facts Auto Post
+
+# on:
+#   workflow_dispatch:
+
+# jobs:
+#   post:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout Code
+#         uses: actions/checkout@v4
+
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 24
+
+#       - name: Install FFmpeg and Fonts
+#         run: |
+#           sudo apt-get update
+#           sudo apt-get install -y ffmpeg fonts-dejavu-core fonts-freefont-ttf
+
+#       - name: Verify FFmpeg
+#         run: |
+#           which ffmpeg
+#           ffmpeg -version
+
+#       - name: Install Dependencies
+#         run: npm install
+
+#       - name: Run Main Script
+#         run: node main.js
+#         env:
+#           PAGE_ID: ${{ secrets.PAGE_ID }}
+#           FB_TOKEN: ${{ secrets.FB_TOKEN }}
+
 name: AI Facts Auto Post
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Isse aap jab chahein button daba kar bhi chala sakte hain
+  schedule:
+    # Har din subah 8:00 AM IST (jo ki UTC me 2:30 AM hota hai)
+    - cron: '30 2 * * *'
 
 jobs:
   post:
