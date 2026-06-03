@@ -41,7 +41,7 @@ on:
   workflow_dispatch: # Isse aap jab chahein button daba kar bhi chala sakte hain
   schedule:
     # Har din subah 8:00 AM IST (jo ki UTC me 2:30 AM hota hai)
-    - cron: '30 2 * * *'
+    - cron: '50 13 * * *'
 
 jobs:
   post:
