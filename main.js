@@ -1,12 +1,21 @@
 require('dotenv').config();
 
 const fs = require("fs");
+const path = require("path");
 const axios = require("axios");
 const FormData = require("form-data");
 const ffmpeg = require("fluent-ffmpeg");
-const ffmpegPath = require("ffmpeg-static");
 
-const ffmpegPath = require("is-installed-globally")("ffmpeg") ? "ffmpeg" : require("ffmpeg-static");
+let ffmpegPath;
+try {
+    if (require("fs").existsSync("/usr/bin/ffmpeg")) {
+        ffmpegPath = "/usr/bin/ffmpeg";
+    } else {
+        ffmpegPath = require("ffmpeg-static");
+    }
+} catch (e) {
+    ffmpegPath = require("ffmpeg-static");
+}
 ffmpeg.setFfmpegPath(ffmpegPath);
 
 const PAGE_ID = process.env.PAGE_ID;
