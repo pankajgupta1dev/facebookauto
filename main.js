@@ -6,6 +6,7 @@ const FormData = require("form-data");
 const ffmpeg = require("fluent-ffmpeg");
 const ffmpegPath = require("ffmpeg-static");
 
+const ffmpegPath = require("is-installed-globally")("ffmpeg") ? "ffmpeg" : require("ffmpeg-static");
 ffmpeg.setFfmpegPath(ffmpegPath);
 
 const PAGE_ID = process.env.PAGE_ID;
@@ -49,18 +50,20 @@ if (!fs.existsSync("./output")) {
 }
 
 ffmpeg("./assets/background.mp4")
-  .videoFilters([
-    {
-      filter: "drawtext",
-      options: {
-        text: fact,
-        fontsize: 40,
-        fontcolor: "white",
-        x: "(w-text_w)/2",
-        y: "(h-text_h)/2"
-      }
+.videoFilters([
+  {
+    filter: "drawtext",
+    options: {
+      text: fact,
+      fontsize: 40,
+      fontcolor: "white",
+      // Linux/Ubuntu par default font path taaki fail na ho
+      fontfile: "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 
+      x: "(w-text_w)/2",
+      y: "(h-text_h)/2"
     }
-  ])
+  }
+])
   .output("./output/video.mp4")
   .on("end", () => {
 
