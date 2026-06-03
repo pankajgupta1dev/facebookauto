@@ -16,7 +16,7 @@ Thumbs.db
 .vscode/
 
 # Generated Videos
-videos/*.mp4
+# videos/*.mp4
 
 # Temporary Files
 temp/

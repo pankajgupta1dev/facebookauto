@@ -20,3 +20,4 @@ jobs:
         env:
           FB_TOKEN: ${{ secrets.FB_TOKEN }}
           PAGE_ID: ${{ secrets.PAGE_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
