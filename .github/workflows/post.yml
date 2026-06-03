@@ -16,17 +16,15 @@ jobs:
         with:
           node-version: 24
 
-      # 1. Sabse pehle proper FFmpeg setup karega (saare filters ke sath)
+      # Is action me bina kisi website error ke direct GitHub mirror se fast download hota hai
       - name: Setup FFmpeg
-        uses: FedericoCarboni/setup-ffmpeg@v3
+        uses: bencevans/setup-ffmpeg@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          version: '6.0'
 
-      # 2. Fir node modules install honge
       - name: Install Dependencies
         run: npm install
 
-      # 3. Last me aapka script run hoga jab sab ready hai
       - name: Run Main Script
         run: node main.js
         env:
