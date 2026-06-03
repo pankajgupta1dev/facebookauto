@@ -1,4 +1,33 @@
-name: AI Facts Auto Post
+# name: AI Facts Auto Post
+
+# on:
+#   workflow_dispatch:
+
+# jobs:
+#   post:
+#     runs-on: ubuntu-latest
+
+#     env:
+#       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+#     steps:
+#       - uses: actions/checkout@v4
+
+#       - uses: actions/setup-node@v4
+#         with:
+#           node-version: 24
+
+#       - run: npm install
+
+#       - run: node generate-fact.js
+#         env:
+#           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+#       - run: node post-fact.js
+#         env:
+#           PAGE_ID: ${{ secrets.PAGE_ID }}
+#           FB_TOKEN: ${{ secrets.FB_TOKEN }}
+name: Daily AI Video
 
 on:
   workflow_dispatch:
@@ -6,9 +35,6 @@ on:
 jobs:
   post:
     runs-on: ubuntu-latest
-
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
     steps:
       - uses: actions/checkout@v4
@@ -21,10 +47,5 @@ jobs:
 
       - run: node main.js
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          
-        env:
           PAGE_ID: ${{ secrets.PAGE_ID }}
           FB_TOKEN: ${{ secrets.FB_TOKEN }}
-
-
