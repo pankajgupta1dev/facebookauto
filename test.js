@@ -1,20 +1,17 @@
 require('dotenv').config();
-const axios = require('axios');
 
-async function testPost() {
-  const res = await axios.post(
-    `https://graph.facebook.com/v25.0/${process.env.PAGE_ID}/feed`,
-    {
-      message: "Hello from Node.js 🚀"
-    },
-    {
-      params: {
-        access_token: process.env.FB_TOKEN
-      }
-    }
-  );
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-  console.log(res.data);
+async function test() {
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+  const model = genAI.getGenerativeModel({
+    model: "gemini-2.0-flash"
+  });
+
+  const result = await model.generateContent("Say hello");
+
+  console.log(result.response.text());
 }
 
-testPost().catch(console.error);
+test();
