@@ -1,13 +1,12 @@
-name: Facebook Upload
+name: AI Facts Auto Post
 
 on:
   workflow_dispatch:
 
 jobs:
-  upload:
+  post:
     runs-on: ubuntu-latest
 
-    # 👇 Yeh env block pure job ke liye Node 24 force kar dega
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
@@ -16,12 +15,15 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 24 # 👈 Node 20 ko hata kar 24 kar diya
+          node-version: 24
 
       - run: npm install
 
-      - run: node upload-facebook.js
+      - run: node generate-fact.js
         env:
-          FB_TOKEN: ${{ secrets.FB_TOKEN }}
-          PAGE_ID: ${{ secrets.PAGE_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - run: node post-fact.js
+        env:
+          PAGE_ID: ${{ secrets.PAGE_ID }}
+          FB_TOKEN: ${{ secrets.FB_TOKEN }}
