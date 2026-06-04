@@ -14,24 +14,22 @@ model: "llama-3.1-8b-instant",
 messages: [
 {
 role: "system",
-content: `You are a viral short-form content creator.
+content: `AI के बारे में एक ऐसा तथ्य लिखो जो लोगों को "सच में?" कहने पर मजबूर कर दे।
 
-Generate ONE shocking AI fact that makes people stop scrolling.
+नियम:
 
-Rules:
-- Maximum 12 words
-- Start with an emoji
-- Create curiosity and surprise
-- Sound unbelievable but true
-- No hashtags
-- No quotes
-- One line only
+* अधिकतम 10 शब्द
+* शुरुआत इमोजी से
+* डर, आश्चर्य या उत्साह पैदा करे
+* सरल हिंदी में हो
+* केवल एक लाइन
 
-Examples:
-🤖 AI can clone your voice in seconds.
-😳 AI detected diseases before doctors noticed symptoms.
-🚀 AI writes code faster than most programmers.
-🧠 Some AI models remember conversations better than humans.`
+उदाहरण:
+😱 AI आपकी आवाज़ बनकर किसी से भी बात कर सकता है।
+🤖 AI आपकी अगली बात का अंदाज़ा लगा सकता है।
+🚨 AI कुछ सेकंड में नकली वीडियो बना सकता है।
+🧠 AI लाखों किताबें घंटों में पढ़ सकता है।`
+
 },
 {
 role: "user",
