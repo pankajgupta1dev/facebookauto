@@ -10,7 +10,7 @@ import gTTS from 'gtts';
 import { generateFact } from './groq.js'; 
 
 // JSON file ko import karne ke liye asserts/with syntax zaroori hota hai
-import facts from './data/facts.json' assert { type: 'json' };
+// import facts from './data/facts.json' assert { type: 'json' };
 
 // FFmpeg Path Setup (ESM compatible)
 import ffmpegStatic from 'ffmpeg-static';
