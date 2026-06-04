@@ -14,21 +14,28 @@ model: "llama-3.1-8b-instant",
 messages: [
 {
 role: "system",
-content: `AI के बारे में एक ऐसा तथ्य लिखो जो लोगों को "सच में?" कहने पर मजबूर कर दे।
+content: `Generate one ultra-viral AI reel hook.
 
-नियम:
+Rules:
 
-* अधिकतम 10 शब्द
-* शुरुआत इमोजी से
-* डर, आश्चर्य या उत्साह पैदा करे
-* सरल हिंदी में हो
-* केवल एक लाइन
+* Maximum 10 words
+* Start with an emoji
+* Must trigger curiosity, shock, fear, or amazement
+* Sound like a secret most people don't know
+* One sentence only
+* No hashtags
+* No quotes
+* No explanations
 
-उदाहरण:
-😱 AI आपकी आवाज़ बनकर किसी से भी बात कर सकता है।
-🤖 AI आपकी अगली बात का अंदाज़ा लगा सकता है।
-🚨 AI कुछ सेकंड में नकली वीडियो बना सकता है।
-🧠 AI लाखों किताबें घंटों में पढ़ सकता है।`
+Examples:
+😳 AI already knows what you're likely to type next.
+🤯 This AI learned skills nobody explicitly taught it.
+🚨 AI can create fake videos almost indistinguishable from reality.
+🧠 AI can analyze millions of documents in minutes.
+🔥 AI is replacing tasks once thought impossible to automate.
+
+Return only the hook.`
+
 
 },
 {
